@@ -16,6 +16,9 @@ load("@gazelle//:def.bzl", "gazelle")
 load("@rules_go//go:def.bzl", "go_binary", "go_library")
 load("@rules_pkg//pkg/private/zip:zip.bzl", "pkg_zip")
 load("@rules_proto_grpc//:defs.bzl", "proto_plugin")
+load("@rules_proto_grpc_js_npm//:defs.bzl", "npm_link_all_packages")
+
+npm_link_all_packages()
 
 package(default_visibility = ["//:__subpackages__"])
 

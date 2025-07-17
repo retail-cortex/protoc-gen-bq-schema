@@ -13,7 +13,12 @@ bazel_dep(name = "platforms", version = "1.0.0")
 bazel_dep(name = "rules_proto", version = "7.1.0")
 bazel_dep(name = "rules_proto_grpc", version = "5.3.1")
 bazel_dep(name = "rules_proto_grpc_go", version = "5.3.1")
+bazel_dep(name = "rules_proto_grpc_python", version = "5.3.1")
+bazel_dep(name = "rules_proto_grpc_java", version = "5.3.1")
+bazel_dep(name = "rules_proto_grpc_js", version = "5.3.1")
 bazel_dep(name = "rules_proto_grpc_doc", version = "5.3.1")
+bazel_dep(name = "aspect_rules_js", version = "2.4.0")
+bazel_dep(name = "aspect_rules_ts", version = "3.6.3")
 bazel_dep(name = "rules_pkg", version = "1.1.0")
 bazel_dep(name = "protobuf", version = "31.1", repo_name = "com_google_protobuf")
 bazel_dep(name = "googleapis", version = "0.0.0-20241220-5e258e33.bcr.1")
@@ -35,3 +40,9 @@ use_repo(
     "com_github_golang_glog",
     "org_golang_google_protobuf",
 )
+
+################################################################################
+# Node JS
+################################################################################
+npm = use_extension("@aspect_rules_js//npm:extensions.bzl", "npm")
+use_repo(npm, "rules_proto_grpc_js_npm")

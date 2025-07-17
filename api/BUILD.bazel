@@ -16,6 +16,9 @@ load("@rules_go//go:def.bzl", "go_library")
 load("@rules_go//proto:def.bzl", "go_proto_library")
 load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@rules_proto_grpc_doc//:defs.bzl", "doc_markdown_compile")
+load("@rules_proto_grpc_java//:defs.bzl", "java_proto_library")
+load("@rules_proto_grpc_js//:defs.bzl", "js_proto_library")
+load("@rules_proto_grpc_python//:defs.bzl", "python_proto_library")
 
 exports_files([
     "bq_field.proto",
@@ -62,5 +65,23 @@ go_library(
     name = "protos",
     embed = [":protos_go_proto"],
     importpath = "github.com/GoogleCloudPlatform/protoc-gen-bq-schema/v3/protos",
+    visibility = ["//visibility:public"],
+)
+
+java_proto_library(
+    name = "protos_java_proto",
+    protos = [":bq_schema_proto_lib"],
+    visibility = ["//visibility:public"],
+)
+
+js_proto_library(
+    name = "protos_js_proto",
+    protos = [":bq_schema_proto_lib"],
+    visibility = ["//visibility:public"],
+)
+
+python_proto_library(
+    name = "protos_python_proto",
+    protos = [":bq_schema_proto_lib"],
     visibility = ["//visibility:public"],
 )

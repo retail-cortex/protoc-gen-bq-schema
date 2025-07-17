@@ -17,6 +17,9 @@ package gen_bq_schema;
 
 option go_package = "github.com/GoogleCloudPlatform/protoc-gen-bq-schema/v3/protos";
 
+option java_package = "com.github.google_cloud_platform.protoc_gen_bq_schema.v3.protos";
+option java_multiple_files = true;
+
 import "google/protobuf/descriptor.proto";
 
 
